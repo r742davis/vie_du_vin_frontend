@@ -8,9 +8,8 @@ import {
   CSSTransition,
   TransitionGroup
 } from 'react-transition-group';
-import uuid from 'uuid';
 import { connect } from 'react-redux';
-import { getWines } from '../actions/WineActions';
+import { getWines, deleteWine } from '../actions/WineActions';
 import PropTypes from 'prop-types';
 
 class WineList extends Component {
@@ -19,23 +18,14 @@ class WineList extends Component {
     this.props.getWines()
   }
 
+  onDeleteClick = (id) => {
+    this.props.deleteWine(id)
+  }
+
   render() {
     const { wines } = this.props.wine;
     return (
       <Container>
-          <Button
-            color="dark"
-            style={{marginBottom: '2rem'}}
-            onClick={() => {
-              const name = prompt('Enter Wine')
-              if (name) {
-                this.setState(state => ({
-                  wines: [...state.wines, { id: uuid(), name }]
-                }));
-              }
-            }}
-          >Add Wine</Button>
-
           <ListGroup>
               <TransitionGroup className='wine-list'>
                   {wines.map(({ id, name }) => (
@@ -45,11 +35,7 @@ class WineList extends Component {
                               className="remove-btn"
                               color="danger"
                               size="sm"
-                              onClick={() => {
-                                this.setState(state => ({
-                                  wines: state.wines.filter(wine => wine.id !== id)
-                                }))
-                              }}
+                              onClick={this.onDeleteClick.bind(this, id)}
                             >X
                             </Button>
                             {name}
@@ -72,4 +58,4 @@ const mapStateToProps = (state) => ({
   wine: state.wine
 })
 
-export default connect(mapStateToProps, { getWines })(WineList);
+export default connect(mapStateToProps, { getWines, deleteWine })(WineList);

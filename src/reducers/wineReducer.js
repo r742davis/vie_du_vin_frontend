@@ -16,7 +16,12 @@ export default function(state = initialState, action) {
     case GET_WINES:
       return {
         ...state
-      }
+      };
+    case DELETE_WINE:
+      return {
+        ...state,
+        wines: state.wines.filter(wine => wine.id !== action.payload)
+      };
     default:
       return state;
   }

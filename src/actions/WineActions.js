@@ -5,3 +5,10 @@ export const getWines = () => {
     type: GET_WINES
   }
 }
+
+export const deleteWine = (id) => {
+  return {
+    type: DELETE_WINE,
+    payload: id
+  }
+}
