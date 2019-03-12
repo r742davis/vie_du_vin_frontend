@@ -9,19 +9,18 @@ import {
   TransitionGroup
 } from 'react-transition-group';
 import uuid from 'uuid';
+import { connect } from 'react-redux';
+import { getWines } from '../actions/WineActions';
+import PropTypes from 'prop-types';
 
 class WineList extends Component {
-  state = {
-    wines: [
-      { id: uuid(), name: 'Chateau Morosé' },
-      { id: uuid(), name: 'Black Cat Red' },
-      { id: uuid(), name: 'Napa\'s Delight' },
-      { id: uuid(), name: 'Winter\'s Fell' }
-    ]
+
+  componentDidMount() {
+    this.props.getWines()
   }
 
   render() {
-    const { wines } = this.state;
+    const { wines } = this.props.wine;
     return (
       <Container>
           <Button
@@ -64,4 +63,13 @@ class WineList extends Component {
   }
 }
 
-export default WineList;
+WineList.propTypes = {
+  getWines: PropTypes.func.isRequired,
+  wine: PropTypes.object.isRequired
+}
+
+const mapStateToProps = (state) => ({
+  wine: state.wine
+})
+
+export default connect(mapStateToProps, { getWines })(WineList);
