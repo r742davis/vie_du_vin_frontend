@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import NavBar from './components/NavBar';
 import WineList from './components/WineList';
+import WineModal from './components/WineModal';
+import { Container } from 'reactstrap'
 
 import { Provider } from 'react-redux';
 import store from './store';
@@ -15,7 +17,10 @@ class App extends Component {
         <React.Fragment>
           <div>
             <NavBar />
-            <WineList />
+            <Container>
+              <WineModal />
+              <WineList />
+            </Container>
           </div>
         </React.Fragment>
       </Provider>
