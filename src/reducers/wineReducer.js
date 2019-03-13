@@ -16,7 +16,7 @@ export default function(state = initialState, action) {
     case DELETE_WINE:
       return {
         ...state,
-        wines: state.wines.filter(wine => wine.id !== action.payload)
+        wines: state.wines.filter(wine => wine._id !== action.payload)
       };
     case ADD_WINE:
       return {

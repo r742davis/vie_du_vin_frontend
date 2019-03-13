@@ -12,7 +12,6 @@ import {
 } from 'reactstrap';
 import { connect } from 'react-redux';
 import { addWine } from '../actions/WineActions';
-import uuid from 'uuid';
 
 class WineModal extends Component {
   state = {
@@ -34,7 +33,6 @@ class WineModal extends Component {
   onSubmit = (e) => {
     e.preventDefault()
     const newWine = {
-      id: uuid(),
       name: this.state.wineName
     }
 

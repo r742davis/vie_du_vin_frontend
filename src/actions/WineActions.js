@@ -14,19 +14,31 @@ export const getWines = () => dispatch => {
     )
 };
 
-export const deleteWine = (id) => {
-  return {
-    type: DELETE_WINE,
-    payload: id
-  }
+export const addWine = (wine) => dispatch => {
+  axios
+    .post('/wines', wine)
+    .then(res =>
+      dispatch({
+        type: ADD_WINE,
+        payload: res.data
+      })
+    )
 };
 
-export const addWine = (wine) => {
-  return {
-    type: ADD_WINE,
-    payload: wine
-  }
+export const deleteWine = (id) => dispatch => {
+  axios
+    .delete(`/wines/${id}`)
+    .then(res =>
+      dispatch({
+        type: DELETE_WINE,
+        payload: id
+      })
+  )
 };
+
+//Edit Wine
+//Need to create axios dispatch with edit function
+
 
 export const setWinesLoading = () => {
   return {

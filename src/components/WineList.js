@@ -18,7 +18,7 @@ class WineList extends Component {
     this.props.getWines()
   }
 
-  onDeleteClick = (id) => {
+  onDeleteClick = id => {
     this.props.deleteWine(id)
   }
 
@@ -28,14 +28,14 @@ class WineList extends Component {
       <Container>
           <ListGroup>
               <TransitionGroup className='wine-list'>
-                  {wines.map(({ id, name }) => (
-                    <CSSTransition key={id} timeout={500} classNames="fade">
+                  {wines.map(({ _id, name }) => (
+                    <CSSTransition key={_id} timeout={500} classNames="fade">
                         <ListGroupItem>
                             <Button
                               className="remove-btn"
                               color="danger"
                               size="sm"
-                              onClick={this.onDeleteClick.bind(this, id)}
+                              onClick={this.onDeleteClick.bind(this, _id)}
                             >X
                             </Button>
                             {name}
