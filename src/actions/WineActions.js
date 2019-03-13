@@ -5,7 +5,7 @@ import { GET_WINES, ADD_WINE, DELETE_WINE, ITEMS_LOADING } from './types';
 export const getWines = () => dispatch => {
   dispatch(setWinesLoading());
   axios
-    .get('/wines')
+    .get('https://vie-du-vin-backend.herokuapp.com/wines')
     .then(res =>
       dispatch({
         type: GET_WINES,
@@ -16,7 +16,7 @@ export const getWines = () => dispatch => {
 
 export const addWine = (wine) => dispatch => {
   axios
-    .post('/wines', wine)
+    .post('https://vie-du-vin-backend.herokuapp.com/wines', wine)
     .then(res =>
       dispatch({
         type: ADD_WINE,
@@ -27,7 +27,7 @@ export const addWine = (wine) => dispatch => {
 
 export const deleteWine = (id) => dispatch => {
   axios
-    .delete(`/wines/${id}`)
+    .delete(`https://vie-du-vin-backend.herokuapp.com/wines/${id}`)
     .then(res =>
       dispatch({
         type: DELETE_WINE,

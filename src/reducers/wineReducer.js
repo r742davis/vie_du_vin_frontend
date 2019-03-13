@@ -1,4 +1,9 @@
-import { GET_WINES, ADD_WINE, DELETE_WINE, ITEMS_LOADING } from '../actions/types'
+import {
+  GET_WINES,
+  ADD_WINE,
+  DELETE_WINE,
+  ITEMS_LOADING
+} from '../actions/types'
 
 const initialState = {
   wines: [],
