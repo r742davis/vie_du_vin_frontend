@@ -64,6 +64,31 @@ export const logout = () => {
   }
 }
 
+//Login User
+export const login = ({ email, password }) => dispatch => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }
+
+  //Request body
+  const body = JSON.stringify({ email, password })
+
+  axios.post('/auth', body, config)
+    .then(res => dispatch({
+      type: LOGIN_SUCCESS,
+      payload: res.data
+    }))
+    //For an error with the login
+    .catch(err => {
+      dispatch(returnErrors(err.response.data, err.response.status, 'LOGIN_FAIL'))
+      dispatch({
+        type: LOGIN_FAIL
+      })
+    })
+}
+
 // Setup config, headers, and token
 export const tokenConfig = getState => {
   //Get token from local storage
