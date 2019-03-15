@@ -25,6 +25,13 @@ class WineList extends Component {
     this.props.getWines()
   }
 
+  //Test code for updating component and mounting after log in; if logged in then run getWines()
+  componentDidUpdate(prevProps) {
+    if (this.props.isAuthenticated !== prevProps.isAuthenticated) {
+      this.props.getWines()
+    }
+  }
+
   onDeleteClick = id => {
     this.props.deleteWine(id)
   }
