@@ -2,7 +2,7 @@ import {
   GET_WINES,
   ADD_WINE,
   DELETE_WINE,
-  ITEMS_LOADING
+  WINES_LOADING
 } from '../actions/types'
 
 const initialState = {
@@ -28,7 +28,7 @@ export default function(state = initialState, action) {
         ...state,
         wines: [action.payload, ...state.wines]
       };
-    case ITEMS_LOADING:
+    case WINES_LOADING:
       return {
         ...state,
         loading: true

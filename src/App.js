@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import NavBar from './components/NavBar';
 import WineList from './components/WineList';
 import WineModal from './components/WineModal';
+import Home from './components/pages/Home';
 import { Container } from 'reactstrap';
 
 import { Provider } from 'react-redux';
@@ -23,8 +24,8 @@ class App extends Component {
           <div>
             <NavBar />
             <Container>
-              <WineModal />
-              <WineList />
+              <Home />
+
             </Container>
           </div>
         </React.Fragment>

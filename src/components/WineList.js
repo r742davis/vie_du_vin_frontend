@@ -20,6 +20,7 @@ class WineList extends Component {
     isAuthenticated: PropTypes.bool
   }
 
+  //Problem with code where it tries to load wine list before user is logged in
   componentDidMount() {
     this.props.getWines()
   }
@@ -30,30 +31,32 @@ class WineList extends Component {
 
   render() {
     const { wines } = this.props.wine;
+
+    const isAuthenticated = this.props.isAuthenticated
+
+    const wineList = (
+      <ListGroup>
+      <TransitionGroup className='wine-list'>
+          {wines.map(({ _id, name }) => (
+            <CSSTransition key={_id} timeout={500} classNames="fade">
+                <ListGroupItem>
+                    <Button
+                        className="remove-btn"
+                        color="danger"
+                        size="sm"
+                        onClick={this.onDeleteClick.bind(this, _id)}
+                      >X
+                      </Button>
+                    {name}
+                </ListGroupItem>
+            </CSSTransition>
+          ))}
+      </TransitionGroup>
+      </ListGroup>
+    )
     return (
       <Container>
-          <ListGroup>
-              <TransitionGroup className='wine-list'>
-                  {wines.map(({ _id, name }) => (
-                    <CSSTransition key={_id} timeout={500} classNames="fade">
-                        <ListGroupItem>
-                          { this.props.isAuthenticated
-                            ? <Button
-                                className="remove-btn"
-                                color="danger"
-                                size="sm"
-                                onClick={this.onDeleteClick.bind(this, _id)}
-                              >X
-                              </Button>
-                            : null
-                          }
-
-                            {name}
-                        </ListGroupItem>
-                    </CSSTransition>
-                  ))}
-              </TransitionGroup>
-          </ListGroup>
+        { isAuthenticated ? wineList : ''}
       </Container>
     )
   }

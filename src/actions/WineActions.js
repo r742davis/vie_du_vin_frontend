@@ -1,25 +1,31 @@
 import axios from 'axios';
-import { GET_WINES, ADD_WINE, DELETE_WINE, ITEMS_LOADING } from './types';
+import {
+  GET_WINES,
+  ADD_WINE,
+  DELETE_WINE,
+  WINES_LOADING
+} from './types';
 import { tokenConfig } from './authActions';
 import { returnErrors } from './errorActions';
 
 //Axios helps with async request:dispatch
-export const getWines = () => dispatch => {
+export const getWines = () => (dispatch, getState) => {
   dispatch(setWinesLoading());
   axios
-    .get('https://vie-du-vin-backend.herokuapp.com/wines')
+    .get('/wines', tokenConfig(getState))
     .then(res =>
       dispatch({
         type: GET_WINES,
         payload: res.data
       })
     )
-    .catch(err => dispatch(returnErrors(err.response.data, err.response.status)))
+    .catch(err =>
+      dispatch(returnErrors(err.response.data, err.response.status)))
 };
 
 export const addWine = (wine) => (dispatch, getState) => {
   axios
-    .post('https://vie-du-vin-backend.herokuapp.com/wines', wine, tokenConfig(getState))
+    .post('/wines', wine, tokenConfig(getState))
     .then(res =>
       dispatch({
         type: ADD_WINE,
@@ -31,7 +37,7 @@ export const addWine = (wine) => (dispatch, getState) => {
 
 export const deleteWine = (id) => (dispatch, getState) => {
   axios
-    .delete(`https://vie-du-vin-backend.herokuapp.com/wines/${id}`, tokenConfig(getState))
+    .delete(`/wines/${id}`, tokenConfig(getState))
     .then(res =>
       dispatch({
         type: DELETE_WINE,
@@ -47,6 +53,6 @@ export const deleteWine = (id) => (dispatch, getState) => {
 
 export const setWinesLoading = () => {
   return {
-    type: ITEMS_LOADING
+    type: WINES_LOADING
   }
 }

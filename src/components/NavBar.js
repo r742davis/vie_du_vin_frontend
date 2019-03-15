@@ -6,7 +6,6 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
   Container
 } from 'reactstrap';
 import { connect } from 'react-redux';
@@ -21,7 +20,8 @@ class NavBar extends Component {
   }
 
   static propTypes = {
-    auth: PropTypes.object.isRequired
+    auth: PropTypes.object.isRequired,
+    isAuthenticated: PropTypes.bool
   }
 
   toggle = () => {
@@ -76,6 +76,7 @@ class NavBar extends Component {
 
 }
 const mapStateToProps = state => ({
-  auth: state.auth
+  auth: state.auth,
+  isAuthenticated: state.auth.isAuthenticated
 })
 export default connect(mapStateToProps, null)(NavBar);
