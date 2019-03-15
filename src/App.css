@@ -1,3 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Caveat|Dancing+Script|PT+Sans+Narrow');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'PT Sans Narrow', sans-serif;
+}
+
 .remove-btn {
   margin-right: 0.5rem;
 }
@@ -18,4 +29,11 @@
 .fade-exit-active {
   opacity: 0.01;
   transition: opacity 0.5s ease-in;
+}
+
+
+/*Site Title*/
+.title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3rem;
 }

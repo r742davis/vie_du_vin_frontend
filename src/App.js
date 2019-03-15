@@ -3,7 +3,6 @@ import NavBar from './components/NavBar';
 import WineList from './components/WineList';
 import WineModal from './components/WineModal';
 import { Container } from 'reactstrap';
-import cors from 'cors';
 
 import { Provider } from 'react-redux';
 import store from './store';

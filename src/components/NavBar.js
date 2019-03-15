@@ -61,7 +61,7 @@ class NavBar extends Component {
     <div>
         <Navbar color="dark" dark expand="sm" className="mb-5">
           <Container>
-              <NavbarBrand href="/">Wine List</NavbarBrand>
+              <NavbarBrand className="title" href="/wine">Vie du Vin</NavbarBrand>
               <NavbarToggler onClick={this.toggle} />
               <Collapse isOpen={this.state.isOpen} navbar>
                   <Nav className="ml-auto" navbar>
