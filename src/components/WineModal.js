@@ -12,11 +12,16 @@ import {
 } from 'reactstrap';
 import { connect } from 'react-redux';
 import { addWine } from '../actions/WineActions';
+import PropTypes from 'prop-types';
 
 class WineModal extends Component {
   state = {
     modalOpen: false,
     wineName: ''
+  }
+
+  static propTypes = {
+    isAuthenticated: PropTypes.bool
   }
 
   toggleModal = () => {
@@ -46,11 +51,15 @@ class WineModal extends Component {
   render() {
     return (
       <div>
-        <Button
-          color="dark"
-          style={{marginBottom: '2rem'}}
-          onClick={this.toggleModal}
-        >Add Wine</Button>
+
+        { this.props.isAuthenticated
+          ? <Button
+              color="dark"
+              style={{marginBottom: '2rem'}}
+              onClick={this.toggleModal}
+            >Add Wine</Button>
+          : <h4 className="mb-3 ml-4">Please log in to see your wine list</h4> }
+
 
         <Modal
           isOpen={this.state.modalOpen}
@@ -90,7 +99,8 @@ class WineModal extends Component {
 }
 
 const mapStateToProps = state => ({
-  wine: state.wine
+  wine: state.wine,
+  isAuthenticated: state.auth.isAuthenticated
 })
 
 export default connect(mapStateToProps, { addWine })(WineModal);
