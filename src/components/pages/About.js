@@ -4,7 +4,7 @@ const About = () => {
   return (
     <div>
       <h4>About Page</h4>
-      <p>Yes ncansansl klasc asjkcs</p>
+      <p>HELLO HELLO</p>
     </div>
   )
 }

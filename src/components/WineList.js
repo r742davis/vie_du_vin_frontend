@@ -21,9 +21,9 @@ class WineList extends Component {
   }
 
   //Problem with code where it tries to load wine list before user is logged in
-  componentDidMount() {
-    this.props.getWines()
-  }
+  // componentDidMount() {
+  //   this.props.getWines()
+  // }
 
   //Test code for updating component and mounting after log in; if logged in then run getWines()
   componentDidUpdate(prevProps) {

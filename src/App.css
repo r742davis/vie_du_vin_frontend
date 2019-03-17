@@ -37,3 +37,8 @@ body {
   font-family: 'Dancing Script', cursive;
   font-size: 3rem;
 }
+
+/*Logout Button*/
+.logout {
+  font-size: 12px;
+}

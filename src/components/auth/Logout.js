@@ -3,6 +3,7 @@ import { NavLink } from 'reactstrap';
 import { connect } from 'react-redux';
 import { logout } from '../../actions/authActions';
 import PropTypes from 'prop-types';
+import '../../App.css';
 
 export class Logout extends Component {
   static propTypes = {
@@ -12,7 +13,11 @@ export class Logout extends Component {
   render() {
     return (
       <Fragment>
-        <NavLink onClick={this.props.logout} href="#">
+        <NavLink
+          className="logout btn btn-danger"
+          style={{color: 'white'}}
+          onClick={this.props.logout}
+          href="/wines">
           Logout
         </NavLink>
       </Fragment>

@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import { Link, NavLInk } from 'react-router-dom';
 import {
   Collapse,
   Navbar,
@@ -37,7 +38,22 @@ class NavBar extends Component {
       <Fragment>
         <NavItem>
           <span className="navbar-text mr-4">
-            <strong>{ user ? `Welcome ${user.name}` : '' }</strong>
+            <strong><Link to="/about">About</Link></strong>
+          </span>
+        </NavItem>
+        <NavItem>
+          <span className="navbar-text mr-4">
+            <strong><Link to="/contact">Contact</Link></strong>
+          </span>
+        </NavItem>
+        <NavItem>
+          <span className="navbar-text mr-4">
+            <strong><Link to="/wineinfo">Wine Info</Link></strong>
+          </span>
+        </NavItem>
+        <NavItem>
+          <span className="navbar-text mr-4">
+            <strong style={{color: 'crimson'}}>{ user ? `Welcome ${user.name}` : '' }</strong>
           </span>
         </NavItem>
         <NavItem>
@@ -61,7 +77,7 @@ class NavBar extends Component {
     <div>
         <Navbar color="dark" dark expand="sm" className="mb-5">
           <Container>
-              <NavbarBrand className="title" href="/wine">Vie du Vin</NavbarBrand>
+              <NavbarBrand className="title"><Link to="/wines" style={{color: 'white', textDecoration: 'none'}}>Vie du Vin</Link></NavbarBrand>
               <NavbarToggler onClick={this.toggle} />
               <Collapse isOpen={this.state.isOpen} navbar>
                   <Nav className="ml-auto" navbar>

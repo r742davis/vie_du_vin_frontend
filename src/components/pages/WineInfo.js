@@ -4,7 +4,7 @@ const WineInfo = () => {
   return (
     <div>
       <h4>Wine Info Page</h4>
-      <p>Yes ncansansl klasc asjkcs</p>
+      <p></p>
     </div>
   )
 }

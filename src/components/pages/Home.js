@@ -1,17 +1,34 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { getWines } from '../../actions/WineActions';
+import { connect } from 'react-redux';
 import WineList from '../../components/WineList';
-import WineModal from '../../components/WineModal'
+import WineModal from '../../components/WineModal';
+import PropTypes from 'prop-types';
 
-const Home = () => {
-  return (
-    <div>
-      <h4>Home Page</h4>
-      <p>Your wines will display here:</p>
-      <WineModal />
-      <WineList />
-    </div>
-  )
+class Home extends Component {
+  static propTypes = {
+    auth: PropTypes.object.isRequired,
+    isAuthenticated: PropTypes.bool
+  }
+
+  render() {
+    const isAuthenticated = this.props.isAuthenticated
+
+    return (
+      <div>
+      { isAuthenticated ?
+        <h4>Home Page</h4> : ''}
+
+        <WineModal />
+        <WineList />
+      </div>
+    )
+  }
 }
 
-export default Home
+const mapStateToProps = state => ({
+  auth: state.auth,
+  isAuthenticated: state.auth.isAuthenticated
+})
+
+export default connect(mapStateToProps, null)(Home);
