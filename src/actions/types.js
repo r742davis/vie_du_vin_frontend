@@ -1,6 +1,7 @@
 export const GET_WINES = 'GET_WINES';
 export const ADD_WINE = 'ADD_WINE';
 export const DELETE_WINE = 'DELETE_WINE';
+export const UPDATE_WINE = 'UPDATE_WINE';
 export const WINES_LOADING = 'WINES_LOADING';
 export const USER_LOADING = "USER_LOADING";
 export const USER_LOADED = "USER_LOADED";

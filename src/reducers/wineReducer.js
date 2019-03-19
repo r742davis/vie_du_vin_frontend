@@ -2,6 +2,7 @@ import {
   GET_WINES,
   ADD_WINE,
   DELETE_WINE,
+  UPDATE_WINE,
   WINES_LOADING
 } from '../actions/types'
 
@@ -28,6 +29,13 @@ export default function(state = initialState, action) {
         ...state,
         wines: [action.payload, ...state.wines]
       };
+      //NOT sure if this will work
+    case UPDATE_WINE:
+      return {
+        ...state,
+        wines: [action.payload,
+        ...state.wines]
+      }
     case WINES_LOADING:
       return {
         ...state,

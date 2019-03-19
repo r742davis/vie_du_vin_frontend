@@ -3,6 +3,7 @@ import {
   GET_WINES,
   ADD_WINE,
   DELETE_WINE,
+  UPDATE_WINE,
   WINES_LOADING
 } from './types';
 import { tokenConfig } from './authActions';
@@ -49,7 +50,19 @@ export const deleteWine = (id) => (dispatch, getState) => {
 
 //Edit Wine
 //Need to create axios dispatch with edit function
-
+export const updateWine = (id) =>
+(dispatch, getState) => {
+  axios
+    .put(`/wines/${id}`,
+    tokenConfig(getState))
+    .then(res =>
+      dispatch({
+        type: UPDATE_WINE,
+        payload: id
+      }))
+    .catch(err =>
+      dispatch(returnErrors(err.response.data, err.response.status)))
+}
 
 export const setWinesLoading = () => {
   return {

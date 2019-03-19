@@ -36,6 +36,10 @@ class WineList extends Component {
     this.props.deleteWine(id)
   }
 
+  onUpdateClick = id => {
+    console.log(id);
+  }
+
   render() {
     const { wines } = this.props.wine;
 
@@ -54,7 +58,13 @@ class WineList extends Component {
                         color="danger"
                         size="sm"
                         onClick={this.onDeleteClick.bind(this, _id)}
-                      >X
+                      ><i class="fas fa-times"></i>
+                      </Button>
+                      <Button
+                        color="primary"
+                        size="sm"
+                        onClick={this.onUpdateClick.bind(this, _id)}
+                      ><i className="fas fa-pencil-alt"></i>
                       </Button>
                     </div>
                     <div className="wine-list-details">
