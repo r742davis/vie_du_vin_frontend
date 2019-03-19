@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import {
   Container,
   ListGroup,
@@ -11,9 +12,14 @@ import {
 import { connect } from 'react-redux';
 import { getWines, deleteWine } from '../actions/WineActions';
 import PropTypes from 'prop-types';
+import EditModal from './EditModal';
 
 
 class WineList extends Component {
+  // state = {
+  //   redirect: false
+  // }
+
   static propTypes = {
     getWines: PropTypes.func.isRequired,
     wine: PropTypes.object.isRequired,
@@ -32,15 +38,24 @@ class WineList extends Component {
     }
   }
 
+  // handleRedirect = () => {
+  //   this.setState({ redirect: true })
+  //   console.log(this.state.redirect);
+  // }
+
   onDeleteClick = id => {
     this.props.deleteWine(id)
   }
 
-  onUpdateClick = id => {
-    console.log(id);
-  }
+  // toggleModal = (id) => {
+  //   console.log(id)
+  //   this.setState({
+  //     openModal: !this.state.openModal
+  //   })
+  // }
 
   render() {
+
     const { wines } = this.props.wine;
 
     const isAuthenticated = this.props.isAuthenticated
@@ -58,14 +73,17 @@ class WineList extends Component {
                         color="danger"
                         size="sm"
                         onClick={this.onDeleteClick.bind(this, _id)}
-                      ><i class="fas fa-times"></i>
+                      ><i className="fas fa-times"></i>
                       </Button>
-                      <Button
-                        color="primary"
-                        size="sm"
-                        onClick={this.onUpdateClick.bind(this, _id)}
-                      ><i className="fas fa-pencil-alt"></i>
-                      </Button>
+
+                      <EditModal
+                        wineId = {_id}
+                        wineName = {name}
+                        wineType = {type}
+                        winePrice = {price}
+                      />
+
+
                     </div>
                     <div className="wine-list-details">
                       <h3>{name}</h3>
@@ -81,7 +99,7 @@ class WineList extends Component {
     )
     return (
       <Container>
-        { isAuthenticated ? wineList : ''}
+        { isAuthenticated ? wineList : '' }
       </Container>
     )
   }

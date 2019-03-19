@@ -24,6 +24,7 @@ export const getWines = () => (dispatch, getState) => {
       dispatch(returnErrors(err.response.data, err.response.status)))
 };
 
+//--Add a wine--//
 export const addWine = (wine) => (dispatch, getState) => {
   axios
     .post('/wines', wine, tokenConfig(getState))
@@ -36,6 +37,7 @@ export const addWine = (wine) => (dispatch, getState) => {
     .catch(err => dispatch(returnErrors(err.response.data, err.response.status)))
 };
 
+//--Delete a wine--//
 export const deleteWine = (id) => (dispatch, getState) => {
   axios
     .delete(`/wines/${id}`, tokenConfig(getState))
@@ -48,21 +50,21 @@ export const deleteWine = (id) => (dispatch, getState) => {
     .catch(err => dispatch(returnErrors(err.response.data, err.response.status)))
 };
 
-//Edit Wine
-//Need to create axios dispatch with edit function
-export const updateWine = (id) =>
+//--Edit Wine--// EXPERIMENTAL
+export const updateWine = (id, updatedWine) =>
 (dispatch, getState) => {
+  console.log(updatedWine);
   axios
     .put(`/wines/${id}`,
     tokenConfig(getState))
     .then(res =>
       dispatch({
         type: UPDATE_WINE,
-        payload: id
+        payload: res.data
       }))
     .catch(err =>
       dispatch(returnErrors(err.response.data, err.response.status)))
-}
+};
 
 export const setWinesLoading = () => {
   return {

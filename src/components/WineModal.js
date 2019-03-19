@@ -19,11 +19,11 @@ class WineModal extends Component {
     modalOpen: false,
     name: '',
     price: 0,
-    value: 'red'
+    value: ''
   }
 
   static propTypes = {
-    isAuthenticated: PropTypes.bool
+    isAuthenticated: PropTypes.bool,
   }
 
   toggleModal = () => {

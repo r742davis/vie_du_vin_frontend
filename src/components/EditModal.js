@@ -1,4 +1,4 @@
-mport React, { Component } from 'react';
+import React, { Component } from 'react';
 import {
   Button,
   Modal,
@@ -12,15 +12,13 @@ import {
 } from 'reactstrap';
 import { connect } from 'react-redux';
 import { updateWine } from '../actions/WineActions';
-import PropTypes from 'prop-types';
 
 class EditModal extends Component {
   state = {
-    
-  }
-
-  static propTypes = {
-    isAuthenticated: PropTypes.bool
+    modalOpen: false,
+    name: this.props.wineName,
+    price: this.props.winePrice,
+    value: this.props.wineType
   }
 
   toggleModal = () => {
@@ -40,14 +38,15 @@ class EditModal extends Component {
   /*Form Submission - prevents default reloading. Creating a new wine*/
   onSubmit = (e) => {
     e.preventDefault()
+    console.log(this.props.wineId)
     const updatedWine = {
       name: this.state.name,
       type: this.state.value,
       price: this.state.price
     }
 
-    //Add wine via addWine action
-    this.props.updateWine(updatedWine);
+    //Update wine
+    this.props.updateWine(this.props.wineId, updatedWine);
 
     //Close modal
     this.toggleModal();
@@ -56,21 +55,27 @@ class EditModal extends Component {
   render() {
     return(
       <div>
+          <Button
+            color="dark"
+            style={{marginBottom: '2rem'}}
+            size="sm"
+            onClick={this.toggleModal}
+          ><i className="fas fa-pencil-alt"></i>
+          </Button>
 
         <Modal
           isOpen={this.state.modalOpen}
-          toggle={this.toggleModal}
         >
-          <ModalHeader toggle={this.toggleModal}>Add to Your Wine List</ModalHeader>
+          <ModalHeader>Edit Your Wine</ModalHeader>
             <ModalBody>
-              <Form onSubmit={this.onSubmit}>
+              <Form>
                 <FormGroup>
                   <Label for="wine">Wine</Label>
                   <Input
                     type="text"
                     name="name"
                     id="wine"
-                    placeholder="Wine Name"
+                    value={this.state.name}
                     onChange={this.onChange}
                   />
                 </FormGroup>
@@ -93,26 +98,34 @@ class EditModal extends Component {
                     type="number"
                     name="price"
                     id="price"
-                    placeholder="Price"
+                    value={this.state.price}
                     onChange={this.onChange}
                   />
                 </FormGroup>
+              </Form>
+
                 <ModalFooter>
                   <Input
                     color="primary"
                     type="submit"
-                    value="Add Wine"
+                    value="Update Wine"
+                    onClick={this.onSubmit}
                   />
                   <Button
                     color="secondary"
                     onClick={this.toggleModal}
                   >Cancel</Button>
                 </ModalFooter>
-              </Form>
-            </ModalBody>
 
+            </ModalBody>
         </Modal>
       </div>
     )
   }
 }
+
+const mapStateToProps = (state) => ({
+  wine: state.wine
+})
+
+export default connect(mapStateToProps, { updateWine })(EditModal);

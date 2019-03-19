@@ -38,6 +38,11 @@ class NavBar extends Component {
       <Fragment>
         <NavItem>
           <span className="navbar-text mr-4">
+            <strong><Link to="/wines">Your Wines</Link></strong>
+          </span>
+        </NavItem>
+        <NavItem>
+          <span className="navbar-text mr-4">
             <strong><Link to="/about">About</Link></strong>
           </span>
         </NavItem>
@@ -77,7 +82,7 @@ class NavBar extends Component {
     <div>
         <Navbar color="dark" dark expand="sm" className="mb-5">
           <Container>
-              <NavbarBrand className="title"><Link to="/wines" style={{color: 'white', textDecoration: 'none'}}>Vie du Vin</Link></NavbarBrand>
+              <NavbarBrand className="title" style={{color: 'white', textDecoration: 'none'}}>Vie du Vin</NavbarBrand>
               <NavbarToggler onClick={this.toggle} />
               <Collapse isOpen={this.state.isOpen} navbar>
                   <Nav className="ml-auto" navbar>

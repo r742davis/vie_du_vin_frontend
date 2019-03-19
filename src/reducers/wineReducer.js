@@ -8,7 +8,8 @@ import {
 
 const initialState = {
   wines: [],
-  loading: false
+  loading: false,
+  openModal: false
 }
 
 export default function(state = initialState, action) {
@@ -33,9 +34,8 @@ export default function(state = initialState, action) {
     case UPDATE_WINE:
       return {
         ...state,
-        wines: [action.payload,
-        ...state.wines]
-      }
+        wines: [action.payload, ...state.wines]
+      };
     case WINES_LOADING:
       return {
         ...state,
