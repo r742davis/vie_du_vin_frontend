@@ -3,8 +3,8 @@ import React from 'react'
 const Contact = () => {
   return (
     <div>
-      <h4>Contact Page</h4>
-      <p>Yes ncansansl klasc asjkcs</p>
+      <h4>Contact Me</h4>
+      <p>Inputs will be put here</p>
     </div>
   )
 }

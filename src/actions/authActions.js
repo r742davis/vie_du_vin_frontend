@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { returnErrors } from './errorActions';
-import { getWines } from './WineActions';
 
 //Action types
 import {

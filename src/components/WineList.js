@@ -21,9 +21,9 @@ class WineList extends Component {
   }
 
   //Problem with code where it tries to load wine list before user is logged in
-  // componentDidMount() {
-  //   this.props.getWines()
-  // }
+  componentDidMount() {
+    this.props.getWines()
+  }
 
   //Test code for updating component and mounting after log in; if logged in then run getWines()
   componentDidUpdate(prevProps) {
@@ -44,17 +44,25 @@ class WineList extends Component {
     const wineList = (
       <ListGroup>
       <TransitionGroup className='wine-list'>
-          {wines.map(({ _id, name }) => (
+          {wines.map(({ _id, name, type, price }) => (
             <CSSTransition key={_id} timeout={500} classNames="fade">
                 <ListGroupItem>
-                    <Button
+                  <div className="details-container">
+                    <div className="delete-button">
+                      <Button
                         className="remove-btn"
                         color="danger"
                         size="sm"
                         onClick={this.onDeleteClick.bind(this, _id)}
                       >X
                       </Button>
-                    {name}
+                    </div>
+                    <div className="wine-list-details">
+                      <h3>{name}</h3>
+                      <h6>{type}</h6>
+                      <h6>Price: ${price}</h6>
+                    </div>
+                  </div>
                 </ListGroupItem>
             </CSSTransition>
           ))}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getWines } from '../../actions/WineActions';
+// import { getWines } from '../../actions/WineActions';
 import { connect } from 'react-redux';
 import WineList from '../../components/WineList';
 import WineModal from '../../components/WineModal';
@@ -17,10 +17,13 @@ class Home extends Component {
     return (
       <div>
       { isAuthenticated ?
-        <h4>Home Page</h4> : ''}
+        <>
+          <h4>Home Page</h4>
+          <WineModal />
+          <WineList />
+        </>
+        : ''}
 
-        <WineModal />
-        <WineList />
       </div>
     )
   }

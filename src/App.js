@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
-import WineList from './components/WineList';
-import WineModal from './components/WineModal';
+// import WineList from './components/WineList';
+// import WineModal from './components/WineModal';
 
 //Routes
 import Home from './components/pages/Home';
@@ -34,7 +34,6 @@ class App extends Component {
               <Route path="/about" component={About} />
               <Route path="/contact" component={Contact} />
               <Route path="/wineinfo" component={WineInfo} />
-
             </Container>
           </div>
         </React.Fragment>

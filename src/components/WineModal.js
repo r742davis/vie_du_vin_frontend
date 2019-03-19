@@ -17,7 +17,9 @@ import PropTypes from 'prop-types';
 class WineModal extends Component {
   state = {
     modalOpen: false,
-    wineName: ''
+    name: '',
+    price: 0,
+    value: 'red'
   }
 
   static propTypes = {
@@ -34,11 +36,17 @@ class WineModal extends Component {
     this.setState({ [e.target.name]: e.target.value })
   }
 
+  onValueChange = (e) => {
+    this.setState({ value: e.target.value })
+  }
+
   /*Form Submission - prevents default reloading. Creating a new wine*/
   onSubmit = (e) => {
     e.preventDefault()
     const newWine = {
-      name: this.state.wineName
+      name: this.state.name,
+      type: this.state.value,
+      price: this.state.price
     }
 
     //Add wine via addWine action
@@ -72,9 +80,32 @@ class WineModal extends Component {
                   <Label for="wine">Wine</Label>
                   <Input
                     type="text"
-                    name="wineName"
+                    name="name"
                     id="wine"
-                    placeholder="Add wine"
+                    placeholder="Wine Name"
+                    onChange={this.onChange}
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label for="type">Type</Label>
+                  <select
+                    placeholder="Pick Wine Type"
+                    value={this.state.value}
+                    onChange={this.onValueChange}
+                  >
+                    <option value="Red">Red</option>
+                    <option value="White">White</option>
+                    <option value="Red Blend">Red Blend</option>
+                    <option value="White Blend">White Blend</option>
+                  </select>
+                </FormGroup>
+                <FormGroup>
+                  <Label for="price">Price</Label>
+                  <Input
+                    type="number"
+                    name="price"
+                    id="price"
+                    placeholder="Price"
                     onChange={this.onChange}
                   />
                 </FormGroup>
