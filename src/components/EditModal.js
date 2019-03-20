@@ -57,7 +57,7 @@ class EditModal extends Component {
       <div>
           <Button
             color="dark"
-            style={{marginBottom: '2rem'}}
+            style={{width: "30px", height: "30px", marginRight: "1rem" }}
             size="sm"
             onClick={this.toggleModal}
           ><i className="fas fa-pencil-alt"></i>
@@ -66,7 +66,7 @@ class EditModal extends Component {
         <Modal
           isOpen={this.state.modalOpen}
         >
-          <ModalHeader>Edit Your Wine</ModalHeader>
+          <ModalHeader className="modal-header shadow p-3 mb-2 bg-white">Edit Your Wine</ModalHeader>
             <ModalBody>
               <Form>
                 <FormGroup>
@@ -79,7 +79,9 @@ class EditModal extends Component {
                     onChange={this.onChange}
                   />
                 </FormGroup>
-                <FormGroup>
+                <FormGroup
+                  style={{display: "flex", flexDirection: "column"}}
+                >
                   <Label for="type">Type</Label>
                   <select
                     placeholder="Pick Wine Type"

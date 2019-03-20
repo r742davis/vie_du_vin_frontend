@@ -3,7 +3,11 @@ import {
   Container,
   ListGroup,
   ListGroupItem,
-  Button} from 'reactstrap';
+  Button,
+  UncontrolledCollapse,
+  Card,
+  CardBody
+} from 'reactstrap';
 import {
   CSSTransition,
   TransitionGroup
@@ -15,10 +19,6 @@ import EditModal from './EditModal';
 
 
 class WineList extends Component {
-  state = {
-    isUpdated: true
-  }
-
   static propTypes = {
     auth: PropTypes.object.isRequired,
     getWines: PropTypes.func.isRequired,
@@ -59,11 +59,12 @@ class WineList extends Component {
             <CSSTransition key={_id} timeout={500} classNames="fade">
                 <ListGroupItem key={_id}>
                   <div className="details-container">
-                    <div className="delete-button">
+                    <div className="edit-delete-container">
                       <Button
                         className="remove-btn"
                         color="danger"
                         size="sm"
+                        style={{width: "30px", height: "30px"}}
                         onClick={this.onDeleteClick.bind(this, _id)}
                       ><i className="fas fa-times"></i>
                       </Button>
@@ -74,14 +75,21 @@ class WineList extends Component {
                         wineType = {type}
                         winePrice = {price}
                       />
-
-
                     </div>
+
                     <div className="wine-list-details">
-                      <h3>{name}</h3>
-                      <h6>{type}</h6>
-                      <h6>Price: ${price}</h6>
-                      <h6>{ownerId}</h6>
+                      <h3 id="name">{name}</h3>
+                      <UncontrolledCollapse toggler="#name">
+                        <Card>
+                          <CardBody>
+                            <h5>Wine Type: </h5><h6>{type}</h6>
+                            <br></br>
+                            <h5>Price: </h5> <h6>${price}</h6>
+                            <br></br>
+                            <h5>Owner ID: </h5><h6>{ownerId}</h6>
+                          </CardBody>
+                        </Card>
+                      </UncontrolledCollapse>
                     </div>
                   </div>
                 </ListGroupItem>

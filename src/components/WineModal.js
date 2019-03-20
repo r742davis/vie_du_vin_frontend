@@ -89,7 +89,7 @@ class WineModal extends Component {
                     onChange={this.onChange}
                   />
                 </FormGroup>
-                <FormGroup>
+                <FormGroup style={{display: "flex", flexDirection: "column"}}>
                   <Label for="type">Type</Label>
                   <select
                     name="type"

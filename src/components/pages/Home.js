@@ -3,9 +3,11 @@ import { connect } from 'react-redux';
 import WineList from '../../components/WineList';
 import WineModal from '../../components/WineModal';
 import RegisterModal from '../auth/RegisterModal';
-import LoginModal from '../auth/LoginModal'
+import LoginModal from '../auth/LoginModal';
+import Greetings from './Greetings';
 import PropTypes from 'prop-types';
 import wineScene from './winery-scene.jpg';
+import { Container } from 'reactstrap';
 
 class Home extends Component {
   static propTypes = {
@@ -22,18 +24,22 @@ class Home extends Component {
       { isAuthenticated
         ?
         <>
-          <h4>Your Wines:</h4>
-          <WineModal />
-          <WineList />
+          <Container>
+            <h4>Your Wines:</h4>
+            <WineModal />
+            <WineList />
+          </Container>
         </>
         :
         <>
-          <div className="title-img">
-            <img src={wineScene} className="img-fluid" alt="Winery Title"></img>
-          </div>
-          <div className="login-register-div">
-            <RegisterModal />
-            <LoginModal />
+          <div className="home-container">
+            <div className="title-img">
+              <img src={wineScene} className="img-responsive" alt="Winery Title"></img>
+              <h1 class="centered">Welcome!</h1>
+            </div>
+            <Container className="">
+              <Greetings />
+            </Container>
           </div>
         </>
       }

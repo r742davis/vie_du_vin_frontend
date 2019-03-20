@@ -1,11 +1,14 @@
-import React from 'react'
+import React from 'react';
+import { Container } from 'reactstrap';
 
 const About = () => {
   return (
-    <div>
-      <h4>About Page</h4>
-      <p>HELLO HELLO</p>
-    </div>
+    <Container>
+      <div>
+        <h4>About Page</h4>
+        <p>HELLO HELLO</p>
+      </div>
+    </Container>
   )
 }
 

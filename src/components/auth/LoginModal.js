@@ -95,7 +95,7 @@ class LoginModal extends Component {
           isOpen={this.state.modalOpen}
           toggle={this.toggleModal}
         >
-          <ModalHeader toggle={this.toggleModal} className="modal-header shadow p-3 mb-2 bg-white rounded">Log In</ModalHeader>
+          <ModalHeader toggle={this.toggleModal} className="modal-header shadow p-3 mb-2 bg-white">Log In</ModalHeader>
             <ModalBody>
             { this.state.message
               ? <Alert color="danger">{this.state.message}</Alert>
@@ -126,9 +126,11 @@ class LoginModal extends Component {
                     color="primary"
                     type="submit"
                     value="Login"
+                    className="shadow p-1 mb-2 rounded"
                   />
                   <Button
                     color="secondary"
+                    className="shadow p-1 mb-2 rounded login"
                     onClick={this.toggleModal}
                   >Cancel</Button>
                 </ModalFooter>
