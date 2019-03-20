@@ -18,7 +18,7 @@ export const loadUser = () => (dispatch, getState) => {
   // User loading
   dispatch({ type: USER_LOADING });
 
-  axios.get('/auth/user', tokenConfig(getState))
+  axios.get('https://vie-du-vin-backend.herokuapp.com/auth/user', tokenConfig(getState))
     .then(res => dispatch({
       type: USER_LOADED,
       payload: res.data
@@ -43,7 +43,7 @@ export const register = ({ name, email, password }) => dispatch => {
   //Request body
   const body = JSON.stringify({ name, email, password })
 
-  axios.post('/users', body, config)
+  axios.post('https://vie-du-vin-backend.herokuapp.com/users', body, config)
     .then(res => dispatch({
       type: REGISTER_SUCCESS,
       payload: res.data
@@ -75,7 +75,7 @@ export const login = ({ email, password }) => dispatch => {
   //Request body
   const body = JSON.stringify({ email, password })
 
-  axios.post('/auth', body, config)
+  axios.post('https://vie-du-vin-backend.herokuapp.com/auth', body, config)
     .then(res => dispatch({
       type: LOGIN_SUCCESS,
       payload: res.data
@@ -97,7 +97,8 @@ export const tokenConfig = getState => {
   //Headers
   const config = {
     headers: {
-      "Content-type": "application/json"
+      "Content-type": "application/json",
+      "Authorization": `Bearer-${token}`
     }
   }
 

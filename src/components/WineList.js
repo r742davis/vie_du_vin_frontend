@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 import {
   Container,
   ListGroup,
@@ -16,9 +15,9 @@ import EditModal from './EditModal';
 
 
 class WineList extends Component {
-  // state = {
-  //   redirect: false
-  // }
+  state = {
+    isUpdated: true
+  }
 
   static propTypes = {
     getWines: PropTypes.func.isRequired,
@@ -37,6 +36,8 @@ class WineList extends Component {
       this.props.getWines()
     }
   }
+
+  shouldComponentUpdate
 
   // handleRedirect = () => {
   //   this.setState({ redirect: true })
@@ -59,13 +60,14 @@ class WineList extends Component {
     const { wines } = this.props.wine;
 
     const isAuthenticated = this.props.isAuthenticated
+    // const isUpdated = this.state.isUpdated
 
     const wineList = (
       <ListGroup>
       <TransitionGroup className='wine-list'>
           {wines.map(({ _id, name, type, price }) => (
             <CSSTransition key={_id} timeout={500} classNames="fade">
-                <ListGroupItem>
+                <ListGroupItem key={_id}>
                   <div className="details-container">
                     <div className="delete-button">
                       <Button
@@ -97,6 +99,7 @@ class WineList extends Component {
       </TransitionGroup>
       </ListGroup>
     )
+    console.log(wines)
     return (
       <Container>
         { isAuthenticated ? wineList : '' }

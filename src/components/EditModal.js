@@ -46,7 +46,7 @@ class EditModal extends Component {
     }
 
     //Update wine
-    this.props.updateWine(this.props.wineId, updatedWine);
+    this.props.updateWine(this.props.wineId, updatedWine, this.props.wine);
 
     //Close modal
     this.toggleModal();

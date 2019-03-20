@@ -30,11 +30,12 @@ export default function(state = initialState, action) {
         ...state,
         wines: [action.payload, ...state.wines]
       };
-      //NOT sure if this will work
+
+    //--Update Wine and Reload Wine List--//
     case UPDATE_WINE:
       return {
         ...state,
-        wines: [action.payload, ...state.wines]
+        wines: action.payload
       };
     case WINES_LOADING:
       return {

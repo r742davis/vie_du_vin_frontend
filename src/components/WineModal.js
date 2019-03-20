@@ -18,12 +18,12 @@ class WineModal extends Component {
   state = {
     modalOpen: false,
     name: '',
-    price: 0,
-    value: ''
+    price: '',
+    value: 'Red'
   }
 
   static propTypes = {
-    isAuthenticated: PropTypes.bool,
+    isAuthenticated: PropTypes.bool
   }
 
   toggleModal = () => {
@@ -49,6 +49,7 @@ class WineModal extends Component {
       price: this.state.price
     }
 
+    console.log(newWine);
     //Add wine via addWine action
     this.props.addWine(newWine);
 
@@ -89,6 +90,7 @@ class WineModal extends Component {
                 <FormGroup>
                   <Label for="type">Type</Label>
                   <select
+                    name="type"
                     placeholder="Pick Wine Type"
                     value={this.state.value}
                     onChange={this.onValueChange}
