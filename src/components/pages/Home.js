@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-// import { getWines } from '../../actions/WineActions';
 import { connect } from 'react-redux';
 import WineList from '../../components/WineList';
 import WineModal from '../../components/WineModal';
+import RegisterModal from '../auth/RegisterModal';
+import LoginModal from '../auth/LoginModal'
 import PropTypes from 'prop-types';
 
 class Home extends Component {
@@ -13,16 +14,24 @@ class Home extends Component {
 
   render() {
     const isAuthenticated = this.props.isAuthenticated
-
+    console.log(this.props.auth.user)
     return (
+
       <div>
-      { isAuthenticated ?
+      { isAuthenticated
+        ?
         <>
-          <h4>Home Page</h4>
+          <h4>Your Wines:</h4>
           <WineModal />
           <WineList />
         </>
-        : ''}
+        :
+        <>
+          <h2>Let's log in!</h2>
+          <RegisterModal />
+          <LoginModal />
+        </>
+      }
 
       </div>
     )

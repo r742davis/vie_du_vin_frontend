@@ -23,6 +23,7 @@ class WineModal extends Component {
   }
 
   static propTypes = {
+    auth: PropTypes.object.isRequired,
     isAuthenticated: PropTypes.bool
   }
 
@@ -46,10 +47,11 @@ class WineModal extends Component {
     const newWine = {
       name: this.state.name,
       type: this.state.value,
-      price: this.state.price
+      price: this.state.price,
+      ownerId: this.props.auth.user._id
     }
 
-    console.log(newWine);
+    console.log(newWine)
     //Add wine via addWine action
     this.props.addWine(newWine);
 
@@ -132,6 +134,7 @@ class WineModal extends Component {
 }
 
 const mapStateToProps = state => ({
+  auth: state.auth,
   wine: state.wine,
   isAuthenticated: state.auth.isAuthenticated
 })

@@ -3,7 +3,6 @@ import {
   GET_WINES,
   ADD_WINE,
   DELETE_WINE,
-  UPDATE_WINE,
   WINES_LOADING
 } from './types';
 import { tokenConfig } from './authActions';
@@ -12,7 +11,6 @@ import { returnErrors } from './errorActions';
 //Axios helps with async request:dispatch
 export const getWines = () => (dispatch, getState) => {
   dispatch(setWinesLoading());
-  console.log("I am working");
   axios
     .get('https://vie-du-vin-backend.herokuapp.com/wines', tokenConfig(getState))
     .then(res =>

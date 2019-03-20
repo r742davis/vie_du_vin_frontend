@@ -20,6 +20,7 @@ class WineList extends Component {
   }
 
   static propTypes = {
+    auth: PropTypes.object.isRequired,
     getWines: PropTypes.func.isRequired,
     wine: PropTypes.object.isRequired,
     isAuthenticated: PropTypes.bool
@@ -37,35 +38,24 @@ class WineList extends Component {
     }
   }
 
-  shouldComponentUpdate
-
-  // handleRedirect = () => {
-  //   this.setState({ redirect: true })
-  //   console.log(this.state.redirect);
-  // }
-
   onDeleteClick = id => {
     this.props.deleteWine(id)
   }
 
-  // toggleModal = (id) => {
-  //   console.log(id)
-  //   this.setState({
-  //     openModal: !this.state.openModal
-  //   })
-  // }
-
   render() {
 
-    const { wines } = this.props.wine;
-
     const isAuthenticated = this.props.isAuthenticated
-    // const isUpdated = this.state.isUpdated
+    const authOwnerId = this.props.auth.user._id
+
+    const { wines } = this.props.wine
+    const sortedWines = wines.sort((a,b) => a.name.localeCompare(b.name))
+
+    const filter = sortedWines.filter(wine => wine.ownerId === authOwnerId )
 
     const wineList = (
       <ListGroup>
       <TransitionGroup className='wine-list'>
-          {wines.map(({ _id, name, type, price }) => (
+          {sortedWines.map(({ _id, name, type, price, ownerId }) => (
             <CSSTransition key={_id} timeout={500} classNames="fade">
                 <ListGroupItem key={_id}>
                   <div className="details-container">
@@ -91,6 +81,7 @@ class WineList extends Component {
                       <h3>{name}</h3>
                       <h6>{type}</h6>
                       <h6>Price: ${price}</h6>
+                      <h6>{ownerId}</h6>
                     </div>
                   </div>
                 </ListGroupItem>
@@ -99,7 +90,10 @@ class WineList extends Component {
       </TransitionGroup>
       </ListGroup>
     )
-    console.log(wines)
+    console.log(filter);
+    setTimeout(() => {
+      console.log(sortedWines);
+    }, 3000)
     return (
       <Container>
         { isAuthenticated ? wineList : '' }
@@ -109,6 +103,7 @@ class WineList extends Component {
 }
 
 const mapStateToProps = (state) => ({
+  auth: state.auth,
   wine: state.wine,
   isAuthenticated: state.auth.isAuthenticated
 })
