@@ -87,13 +87,13 @@ class RegisterModal extends Component {
   render() {
     return (
       <div>
-        <NavLink onClick={this.toggleModal} href="#"> Register </NavLink>
+        <Button onClick={this.toggleModal} href="#" className="btn btn-dark login"> Register </Button>
 
         <Modal
           isOpen={this.state.modalOpen}
           toggle={this.toggleModal}
         >
-          <ModalHeader toggle={this.toggleModal}>Vie du Vin - Registration</ModalHeader>
+          <ModalHeader toggle={this.toggleModal} className="modal-header">Register</ModalHeader>
             <ModalBody>
             { this.state.message
               ? <Alert color="danger">{this.state.message}</Alert>

@@ -9,6 +9,7 @@ body {
   font-family: 'PT Sans Narrow', sans-serif;
 }
 
+/*** Animations ***/
 .remove-btn {
   margin-right: 0.5rem;
 }
@@ -31,19 +32,46 @@ body {
   transition: opacity 0.5s ease-in;
 }
 
-
-/*Site Title*/
-.title {
-  font-family: 'Dancing Script', cursive;
-  font-size: 3rem;
+/*** Modal Styling ***/
+.modal-header {
+  color: #672a37;
 }
 
-/*Logout Button*/
+/*** Site Title Page ***/
+.title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  color: whitesmoke;
+}
+.title-img img {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.login-register-div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.glass {
+  margin-right: 10px;
+  font-size: 1.5rem;
+  color: whitesmoke;
+}
+
+/*** Logout Button ***/
 .logout {
   font-size: 12px;
 }
 
-/*Wine Details*/
+/*** Wine Details ***/
 .details-container {
   display:flex;
+}
+
+/*** NavBar ***/
+.nav-bar {
+  background: #672a37;
 }

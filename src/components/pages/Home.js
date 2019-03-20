@@ -5,6 +5,7 @@ import WineModal from '../../components/WineModal';
 import RegisterModal from '../auth/RegisterModal';
 import LoginModal from '../auth/LoginModal'
 import PropTypes from 'prop-types';
+import wineScene from './winery-scene.jpg';
 
 class Home extends Component {
   static propTypes = {
@@ -27,9 +28,13 @@ class Home extends Component {
         </>
         :
         <>
-          <h2>Let's log in!</h2>
-          <RegisterModal />
-          <LoginModal />
+          <div className="title-img">
+            <img src={wineScene} className="img-fluid" alt="Winery Title"></img>
+          </div>
+          <div className="login-register-div">
+            <RegisterModal />
+            <LoginModal />
+          </div>
         </>
       }
 

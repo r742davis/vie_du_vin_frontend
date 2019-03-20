@@ -69,20 +69,21 @@ class NavBar extends Component {
 
     const guestLinks = (
       <Fragment>
-        <NavItem>
+        <NavItem style={{ margin: "10px"}}>
             <RegisterModal />
         </NavItem>
-        <NavItem>
+        <NavItem style={{ margin: "10px"}}>
             <LoginModal />
         </NavItem>
       </Fragment>
     )
 
+
     return (
     <div>
-        <Navbar color="dark" dark expand="sm" className="mb-5">
+        <Navbar dark expand="sm" className="shadow-lg p-3 nav-bar">
           <Container>
-              <NavbarBrand className="title" style={{color: 'white', textDecoration: 'none'}}>Vie du Vin</NavbarBrand>
+              <span><h2 className="title"><i className="fas fa-wine-glass-alt glass"></i>Vie du Vin</h2></span>
               <NavbarToggler onClick={this.toggle} />
               <Collapse isOpen={this.state.isOpen} navbar>
                   <Nav className="ml-auto" navbar>

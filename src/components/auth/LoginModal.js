@@ -88,13 +88,14 @@ class LoginModal extends Component {
   render() {
     return (
       <div>
-        <NavLink onClick={this.toggleModal} href="#"> Login </NavLink>
+
+        <Button onClick={this.toggleModal} href="#" className="btn btn-dark"> Login </Button>
 
         <Modal
           isOpen={this.state.modalOpen}
           toggle={this.toggleModal}
         >
-          <ModalHeader toggle={this.toggleModal}>LOG IN</ModalHeader>
+          <ModalHeader toggle={this.toggleModal} className="modal-header shadow p-3 mb-2 bg-white rounded">Log In</ModalHeader>
             <ModalBody>
             { this.state.message
               ? <Alert color="danger">{this.state.message}</Alert>

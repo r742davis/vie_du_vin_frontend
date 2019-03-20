@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
-// import WineList from './components/WineList';
-// import WineModal from './components/WineModal';
 
 //Routes
 import Home from './components/pages/Home';
@@ -16,6 +14,7 @@ import store from './store';
 import { loadUser } from './actions/authActions'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 
 class App extends Component {
   componentDidMount() {
@@ -29,12 +28,12 @@ class App extends Component {
         <React.Fragment>
           <div>
             <NavBar />
-            <Container>
+            <div>
               <Route exact path="/wines" component={Home} />
               <Route path="/about" component={About} />
               <Route path="/contact" component={Contact} />
               <Route path="/wineinfo" component={WineInfo} />
-            </Container>
+            </div>
           </div>
         </React.Fragment>
         </BrowserRouter>
