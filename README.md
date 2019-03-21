@@ -1,4 +1,4 @@
-##Vie du Vie - Frontend with React
+## Vie du Vin - Frontend with React
 Live Project Link: https://arcane-brushlands-71780.herokuapp.com/wines
 
 
