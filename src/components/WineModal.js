@@ -19,7 +19,13 @@ class WineModal extends Component {
     modalOpen: false,
     name: '',
     price: '',
-    value: 'Red'
+    value: 'Red',
+    region: '',
+    vintage: '',
+    producer: '',
+    alcoholPercent: '',
+    tastingNotes: '',
+    grape: ''
   }
 
   static propTypes = {
@@ -48,7 +54,13 @@ class WineModal extends Component {
       name: this.state.name,
       type: this.state.value,
       price: this.state.price,
-      ownerId: this.props.auth.user._id
+      ownerId: this.props.auth.user._id,
+      region: this.state.region,
+      vintage: this.state.vintage,
+      producer: this.state.producer,
+      alcoholPercent: this.state.alcoholPercent,
+      tastingNotes: this.state.tastingNotes,
+      grape: this.state.grape
     }
 
     console.log(newWine)
@@ -112,9 +124,70 @@ class WineModal extends Component {
                     onChange={this.onChange}
                   />
                 </FormGroup>
+                <FormGroup>
+                  <Label for="producer">Producer</Label>
+                  <Input
+                    type="text"
+                    name="producer"
+                    id="producer"
+                    placeholder="Who made this wine?"
+                    onChange={this.onChange}
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label for="region">Region</Label>
+                  <Input
+                    type="text"
+                    name="region"
+                    id="region"
+                    placeholder="What region is this from?"
+                    onChange={this.onChange}
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label for="vintage">Vintage</Label>
+                  <Input
+                    type="number"
+                    name="vintage"
+                    id="vintage"
+                    placeholder="What year?"
+                    onChange={this.onChange}
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label for="alcoholPercent">Alcohol Percentage</Label>
+                  <Input
+                    type="number"
+                    name="alcoholPercent"
+                    id="alcoholPercent"
+                    placeholder="Who is the alcohol percentage?"
+                    onChange={this.onChange}
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label for="tastingNotes">Tasting Notes</Label>
+                  <Input
+                    type="text"
+                    name="tastingNotes"
+                    id="tastingNotes"
+                    placeholder="Any notes?"
+                    onChange={this.onChange}
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label for="grape">Grape</Label>
+                  <Input
+                    type="text"
+                    name="grape"
+                    id="grape"
+                    placeholder="Type of grape?"
+                    onChange={this.onChange}
+                  />
+                </FormGroup>
+
+
                 <ModalFooter>
                   <Input
-                    color="primary"
                     type="submit"
                     value="Add Wine"
                   />

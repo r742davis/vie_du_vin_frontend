@@ -55,7 +55,19 @@ class WineList extends Component {
     const wineList = (
       <ListGroup>
       <TransitionGroup className='wine-list'>
-          {filter.map(({ _id, name, type, price, ownerId }) => (
+          {filter.map((
+            {_id,
+            name,
+            type,
+            price,
+            producer,
+            region,
+            vintage,
+            alcoholPercent,
+            tastingNotes,
+            grape,
+            ownerId }
+          ) => (
             <CSSTransition key={_id} timeout={500} classNames="fade">
                 <ListGroupItem key={_id}>
                   <div className="details-container">
@@ -83,16 +95,28 @@ class WineList extends Component {
                         <Card>
                           <CardBody>
                             <table>
+                              <tbody>
                               <tr>
                                 <th>TYPE</th>
                                 <th>PRICE</th>
-
+                                <th>PRODUCER</th>
+                                <th>REGION</th>
+                                <th>VINTAGE</th>
+                                <th>ALC %</th>
+                                <th>TASTE NOTES</th>
+                                <th>GRAPE</th>
                               </tr>
                               <tr>
                                 <td>{type}</td>
                                 <td>${price}</td>
-
+                                <td>{producer}</td>
+                                <td>{region}</td>
+                                <td>{vintage}</td>
+                                <td>{alcoholPercent} %</td>
+                                <td>{tastingNotes}</td>
+                                <td>{grape}</td>
                               </tr>
+                              </tbody>
                             </table>
                           </CardBody>
                         </Card>
