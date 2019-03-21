@@ -178,3 +178,16 @@ th {
 td {
   text-align: center;
 }
+
+/*** Contact Form ***/
+.contact-container {
+  margin: 50px;
+  padding: 20px;
+  border: 1px solid #d3d3d3;
+  border-radius: 1rem;
+  background: white;
+}
+.contact-background {
+  background: #e0e0e0;
+  height: 200vh;
+}

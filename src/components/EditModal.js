@@ -18,7 +18,13 @@ class EditModal extends Component {
     modalOpen: false,
     name: this.props.wineName,
     price: this.props.winePrice,
-    value: this.props.wineType
+    value: this.props.wineType,
+    region: this.props.region,
+    vintage: this.props.vintage,
+    producer: this.props.producer,
+    alcoholPercent: this.props.alcoholPercent,
+    tastingNotes: this.props.tastingNotes,
+    grape: this.props.grape
   }
 
   toggleModal = () => {
@@ -42,7 +48,13 @@ class EditModal extends Component {
     const updatedWine = {
       name: this.state.name,
       type: this.state.value,
-      price: this.state.price
+      price: this.state.price,
+      region: this.state.region,
+      vintage: this.state.vintage,
+      producer: this.state.producer,
+      alcoholPercent: this.state.alcoholPercent,
+      tastingNotes: this.state.tastingNotes,
+      grape: this.state.grape
     }
 
     //Update wine
@@ -101,6 +113,67 @@ class EditModal extends Component {
                     name="price"
                     id="price"
                     value={this.state.price}
+                    onChange={this.onChange}
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label for="producer">Producer</Label>
+                  <Input
+                    type="text"
+                    name="producer"
+                    id="producer"
+                    value={this.state.producer}
+                    onChange={this.onChange}
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label for="region">Region</Label>
+                  <Input
+                    type="text"
+                    name="region"
+                    id="region"
+                    value={this.state.region}
+                    onChange={this.onChange}
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label for="vintage">Vintage</Label>
+                  <Input
+                    type="number"
+                    name="vintage"
+                    id="vintage"
+                    value={this.state.vintage}
+                    onChange={this.onChange}
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label for="alcoholPercent">Alcohol Percentage</Label>
+                  <Input
+                    type="number"
+                    name="alcoholPercent"
+                    id="alcoholPercent"
+                    value={this.state.alcoholPercent}
+                    onChange={this.onChange}
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label for="tastingNotes">Tasting Notes</Label>
+                  <Input
+                    type="text"
+                    name="tastingNotes"
+                    id="tastingNotes"
+                    value={this.state.tastingNotes}
+                    onChange={this.onChange}
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label for="grape">Grape</Label>
+                  <Input
+                    type="text"
+                    name="grape"
+                    id="grape"
+                    value={this.state.grape}
+                    placeholder="Type of grape?"
                     onChange={this.onChange}
                   />
                 </FormGroup>

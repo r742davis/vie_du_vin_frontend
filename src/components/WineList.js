@@ -86,6 +86,12 @@ class WineList extends Component {
                         wineName = {name}
                         wineType = {type}
                         winePrice = {price}
+                        producer = {producer}
+                        region = {region}
+                        vintage ={vintage}
+                        alcoholPercent = {alcoholPercent}
+                        tastingNotes = {tastingNotes}
+                        grape = {grape}
                       />
                     </div>
 
