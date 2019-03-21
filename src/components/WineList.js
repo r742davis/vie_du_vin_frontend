@@ -100,6 +100,7 @@ class WineList extends Component {
                       <UncontrolledCollapse toggler="#toggler">
                         <Card>
                           <CardBody>
+                          <div className="table-responsive">
                             <table>
                               <tbody>
                               <tr>
@@ -124,6 +125,7 @@ class WineList extends Component {
                               </tr>
                               </tbody>
                             </table>
+                          </div>
                           </CardBody>
                         </Card>
                       </UncontrolledCollapse>
