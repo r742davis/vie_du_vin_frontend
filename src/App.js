@@ -4,7 +4,6 @@ import NavBar from './components/NavBar';
 
 //Routes
 import Home from './components/pages/Home';
-import About from './components/pages/About';
 import Contact from './components/pages/Contact';
 import WineInfo from './components/pages/WineInfo';
 
@@ -30,7 +29,6 @@ class App extends Component {
             <NavBar />
             <div>
               <Route exact path="/wines" component={Home} />
-              <Route path="/about" component={About} />
               <Route path="/contact" component={Contact} />
               <Route path="/wineinfo" component={WineInfo} />
             </div>

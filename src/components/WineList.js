@@ -55,7 +55,7 @@ class WineList extends Component {
     const wineList = (
       <ListGroup>
       <TransitionGroup className='wine-list'>
-          {sortedWines.map(({ _id, name, type, price, ownerId }) => (
+          {filter.map(({ _id, name, type, price, ownerId }) => (
             <CSSTransition key={_id} timeout={500} classNames="fade">
                 <ListGroupItem key={_id}>
                   <div className="details-container">
@@ -78,15 +78,22 @@ class WineList extends Component {
                     </div>
 
                     <div className="wine-list-details">
-                      <h3 id="name">{name}</h3>
-                      <UncontrolledCollapse toggler="#name">
+                      <h3 id="toggler" style={{cursor: "pointer"}}>{name}</h3>
+                      <UncontrolledCollapse toggler="#toggler">
                         <Card>
                           <CardBody>
-                            <h5>Wine Type: </h5><h6>{type}</h6>
-                            <br></br>
-                            <h5>Price: </h5> <h6>${price}</h6>
-                            <br></br>
-                            <h5>Owner ID: </h5><h6>{ownerId}</h6>
+                            <table>
+                              <tr>
+                                <th>TYPE</th>
+                                <th>PRICE</th>
+
+                              </tr>
+                              <tr>
+                                <td>{type}</td>
+                                <td>${price}</td>
+
+                              </tr>
+                            </table>
                           </CardBody>
                         </Card>
                       </UncontrolledCollapse>
@@ -98,12 +105,9 @@ class WineList extends Component {
       </TransitionGroup>
       </ListGroup>
     )
-    console.log(filter);
-    setTimeout(() => {
-      console.log(sortedWines);
-    }, 3000)
+
     return (
-      <Container>
+      <Container className="shadow-lg" style={{borderRadius: "1rem"}}>
         { isAuthenticated ? wineList : '' }
       </Container>
     )

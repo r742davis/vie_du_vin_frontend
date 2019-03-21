@@ -98,7 +98,12 @@ input[type=submit]:hover {
 .greetings-container {
   margin: 1rem;
   text-align: center;
-  font-family: 'Fira Sans Extra Condensed', sans-serif;
+  color: #42434f;
+  padding: 10px;
+}
+.greetings-container h1 {
+  font-family: 'Dancing Script', cursive;
+  margin-bottom: 1rem;
 }
 .glass {
   margin-right: 10px;
@@ -125,4 +130,51 @@ input[type=submit]:hover {
 /*** NavBar ***/
 .nav-bar {
   background: #672a37;
+}
+.nav-greeting {
+  background: white;
+  color: #672a37;
+  border-radius: 1rem;
+  padding: 5px;
+}
+.nav-button {
+  text-decoration: none;
+  padding: 10px;
+}
+
+@media (max-width: 775px) {
+  .title {
+    font-size: 1.5rem;
+  }
+  .glass {
+    font-size: 1rem;
+  }
+  .nav-greeting {
+    display: none;
+  }
+  .nav-button {
+    font-size: 16px;
+  }
+}
+
+/*** Wine List ***/
+.list-background {
+  background: #e0e0e0;
+  height: 200vh;
+}
+
+/*** Table ***/
+table, th, td {
+  padding: 5px;
+  border: 1px solid #d3d3d3;
+}
+
+th {
+  text-align: left;
+  font-size: 1rem;
+  color: #672a37;
+}
+
+td {
+  text-align: center;
 }

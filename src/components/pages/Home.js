@@ -20,12 +20,11 @@ class Home extends Component {
     console.log(this.props.auth.user)
     return (
 
-      <div>
+      <div className="list-background">
       { isAuthenticated
         ?
         <>
           <Container>
-            <h4>Your Wines:</h4>
             <WineModal />
             <WineList />
           </Container>
@@ -37,7 +36,7 @@ class Home extends Component {
               <img src={wineScene} className="img-responsive" alt="Winery Title"></img>
               <h1 class="centered">Welcome!</h1>
             </div>
-            <Container className="">
+            <Container className="greetings-container">
               <Greetings />
             </Container>
           </div>

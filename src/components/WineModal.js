@@ -66,11 +66,10 @@ class WineModal extends Component {
         { this.props.isAuthenticated
           ? <Button
               color="dark"
-              style={{marginBottom: '2rem'}}
+              style={{marginBottom: '2rem', marginTop: '2rem', width: "100px"}}
               onClick={this.toggleModal}
             >Add Wine</Button>
           : <h4 className="mb-3 ml-4">Please log in to see your wine list</h4> }
-
 
         <Modal
           isOpen={this.state.modalOpen}

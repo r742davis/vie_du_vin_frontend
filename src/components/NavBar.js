@@ -37,28 +37,23 @@ class NavBar extends Component {
     const authLinks = (
       <Fragment>
         <NavItem>
-          <span className="navbar-text mr-4">
-            <strong><Link to="/wines">Your Wines</Link></strong>
+          <span className="navbar-text mr-2">
+            <strong className="nav-button"><Link to="/wines">Wines</Link></strong>
+          </span>
+        </NavItem>
+        <NavItem>
+          <span className="navbar-text mr-2">
+            <strong className="nav-button"><Link to="/contact">Contact</Link></strong>
+          </span>
+        </NavItem>
+        <NavItem>
+          <span className="navbar-text mr-2">
+            <strong className="nav-button"><Link to="/wineinfo">Wine Info</Link></strong>
           </span>
         </NavItem>
         <NavItem>
           <span className="navbar-text mr-4">
-            <strong><Link to="/about">About</Link></strong>
-          </span>
-        </NavItem>
-        <NavItem>
-          <span className="navbar-text mr-4">
-            <strong><Link to="/contact">Contact</Link></strong>
-          </span>
-        </NavItem>
-        <NavItem>
-          <span className="navbar-text mr-4">
-            <strong><Link to="/wineinfo">Wine Info</Link></strong>
-          </span>
-        </NavItem>
-        <NavItem>
-          <span className="navbar-text mr-4">
-            <strong style={{color: 'crimson'}}>{ user ? `Welcome ${user.name}` : '' }</strong>
+            <strong className="nav-greeting">{ user ? `Welcome, ${user.name}` : '' }</strong>
           </span>
         </NavItem>
         <NavItem>

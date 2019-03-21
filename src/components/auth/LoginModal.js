@@ -16,7 +16,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../../actions/authActions';
 import { clearErrors } from '../../actions/errorActions';
-import { getWines } from '../../actions/WineActions'
+import { getWines } from '../../actions/WineActions';
 
 
 class LoginModal extends Component {
